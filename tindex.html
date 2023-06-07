@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" class="rel">
+    <title>Toggle Menu Creation</title>
+
+</head>
+<body>
+    <div class="toggle"><i class="fa fa-bars"></i></div>
+
+<script>
+    let btn = document.querySelector(",toggle");
+    let icon = btn.querySelector(".fa-bars");
+
+    btn .onclick = function(){
+        if(icon.classList.contains("fa-bars")){
+            icon.classList.replace("fa-bars","fa-times");
+
+        }
+        else{
+            icon.classList.replace("fa-times","fa-bars");
+        }
+    }
+</script>
+</body>
+</html>

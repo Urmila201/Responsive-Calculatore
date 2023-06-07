@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatar</title>
+    <style>
+        *{margin: 0;
+        padding: 0;
+    }
+    .container{
+background-color: #222222;
+padding: 40px;
+max-width: 300px;
+margin: 50px auto;
+border-radius: 12px;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+    .display{
+        height: 40px;
+        background-color: #303134;
+        margin: 20px;
+        border-radius: 5px;
+        color: #ffffff;
+        padding: 10px;
+        font-size: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    button{
+        background-color: #5f6365;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        color: #ffffff;
+        border: 0px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #707578;
+    }
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="display"></div>
+    <div class="grid">
+        <button>c</button>
+        <button>/</button>
+        <button>*</button>
+        <button>&#8592;</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>.</button>
+        <button>(</button>
+        <button>0</button>
+        <button>)</button>
+        <button>=</button>
+    </div>
+  </div>  
+
+  <script>
+    var buttons = document.querySelectorAll(".grid button");
+    var display = document.querySelector(".display");
+    buttons.forEach(function(button){
+        button.addEventListener("click",function(e){
+            if(e.target.innerText == "="){
+                try{
+                    display.innerText = eval(display.innerText);
+                }catch{
+                    display.innerText = "Invalid";
+                } 
+            
+            }else if(e.target.innerText == "c"){
+              display.innerText = "";
+            }else if(e.target.innerText == "←"){
+                display.innerText = display.innerText.slice(0,-1);
+            }
+            else{
+                display.innerText = display.innerText + e.target.innerText 
+            }
+            // display.innerText = display.innerText + e.target.innerText
+        })
+    })
+  </script>
+</body>
+</html>
